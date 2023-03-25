@@ -1,0 +1,4 @@
+- **@Component** : Denotes a Generic Component.
+- **@Service** : Business Logic Component.
+- **@Repository** : Component that talks to the Relational Database.
+- **@Controller** : Spring MVC Component.

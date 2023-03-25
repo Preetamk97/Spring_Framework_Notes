@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- This line of code will scan the entire package of 'com.spring.basics.spring_basics' and load all the components created within this package inside the applicationContext.xml -->
+    <!-- So whichever Spring Application uses this applicationContext.xml to get its beans , can access all the beans available under 'com.spring.basics.spring_basics' package - apart from the ones created inside this 'applicationContext.xml' file. -->
+    <context:component-scan base-package="com.spring.basics.spring_basics"></context:component-scan>
+
+    <!-- Creating bean for XmlJdbcConnection.java class -->
+    <bean id="xmlJdbcConnection" class="com.spring.basics.spring_basics.XMLContext.XmlJdbcConnection">
+    </bean>
+
+    <!-- Creating bean for XmlDAO.java class -->
+    <bean id="xmlDAO" class="com.spring.basics.spring_basics.XMLContext.XmlDAO">
+        <!-- Autowiring XmlJdbcConnection.java dependency inside XmlDAO.java -->
+        <property name="xmlJdbcConnection" ref="xmlJdbcConnection"/>
+        <!-- 'ref' attribute is the id of the XmlJdbcConnection bean -->
+    </bean>
+
+</beans>
